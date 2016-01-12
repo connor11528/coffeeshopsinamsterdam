@@ -1,0 +1,29 @@
+{
+  "name": "coffeeshopsinamsterdam",
+  "version": "0.0.1",
+  "description": "coffee shops in Amsterdam",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "angularjs",
+    "mean",
+    "angular",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Connor Leech",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "cookie-parser": "^1.3.5",
+    "cors": "^2.7.1",
+    "express": "^4.12.4",
+    "method-override": "^2.3.3",
+    "mongoose": "^4.0.5"
+  }
+}
