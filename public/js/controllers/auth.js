@@ -1,9 +1,11 @@
 
 app.controller('AuthCtrl', function($scope, $auth, $location){
 
-	$scope.authenticate = function(provider) {
-		$auth.authenticate(provider);
-	};
+	// For facebook login
+	// $scope.authenticate = function(provider) {
+	// 	$auth.authenticate(provider);
+	// 	$location.path('/');
+	// };
 
 	// register new user
 	$scope.newUser = {};
@@ -21,4 +23,16 @@ app.controller('AuthCtrl', function($scope, $auth, $location){
 				$scope.errorMessage = res.data.message;
 			});
 	};
+
+	$scope.loginUser = {};
+	$scope.login = function() {
+      $auth.login($scope.loginUser)
+        .then(function() {
+        	$location.path('/');
+        })
+        .catch(function(res) {
+        	console.log(res);
+			$scope.errorMessage = res.data.message;
+        });
+    };
 });

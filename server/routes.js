@@ -54,6 +54,27 @@ router.post('/auth/signup', function(req, res) {
 	});
 });
 
+/*
+ |--------------------------------------------------------------------------
+ | Log in with Email
+ |--------------------------------------------------------------------------
+ */
+router.post('/auth/login', function(req, res) {
+  User.findOne({ email: req.body.email }, '+password', function(err, user) {
+	if (!user) {
+    	console.log('user not found');
+    	return res.status(401).send({ message: 'Invalid email and/or password' });
+    }
+    user.comparePassword(req.body.password, function(err, isMatch) {
+      if (!isMatch) {
+      	console.log('wrong password');
+        return res.status(401).send({ message: 'Invalid email and/or password' });
+      }
+      res.send({ token: createJWT(user) });
+    });
+  });
+});
+
 // angularjs catch all route
 router.get('/*', function(req, res) {
 	res.sendFile(rootPath + 'public/index.html', { user: req.user });

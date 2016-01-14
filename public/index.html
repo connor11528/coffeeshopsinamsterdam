@@ -22,10 +22,13 @@
   <div class='container'>
     <!-- Navbar -->
     <nav class='row' ng-controller='NavCtrl'>
-      <ul class='nav nav-pills pull-right'>
+      <ul class='nav nav-pills pull-left'>
         <li ui-sref-active="active">
           <a ui-sref='home'>Home</a>
         </li>
+      </ul>
+      <ul class='nav nav-pills pull-right'>
+        
         <li ui-sref-active="active" ng-if="!isAuthenticated()">
           <a ui-sref='register'>Register</a>
         </li>
