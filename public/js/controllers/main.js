@@ -1,4 +1,7 @@
 
-app.controller('MainCtrl', function($scope){
-	$scope.button = "From main controller";
+app.controller('MainCtrl', function($scope, $http){
+	$http.get('/api/coffeeshops')
+		.then(function(res){
+			$scope.coffeeshops = res.data;
+		});
 });
