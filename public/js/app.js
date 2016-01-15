@@ -6,9 +6,9 @@ var app = angular.module('mean-auth-starter', [
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 	// satellizer config
-	$authProvider.facebook({
-      clientId: 'Facebook App ID'
-    });
+	// $authProvider.facebook({
+	// 	clientId: 'Facebook App ID'
+	// });
 
     // define routes
 	$stateProvider
@@ -34,10 +34,19 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 			url: '/logout',
 			template: null,
 			controller: 'LogoutCtrl'
+		})
+		.state('profile', {
+			url: '/profile',
+			templateUrl: 'templates/profile.html',
+			controller: 'ProfileCtrl',
+			resolve: {
+				loginRequired: loginRequired
+			}
 		});
 
 	$urlRouterProvider.otherwise("/");
 
+	// Resolve functions
 	function skipIfLoggedIn($q, $auth) {
       var dfd = $q.defer();
       if ($auth.isAuthenticated()) {
@@ -46,5 +55,14 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
         dfd.resolve();
       }
       return dfd.promise;
+    }
+    function loginRequired($q, $location, $auth) {
+      var deferred = $q.defer();
+      if ($auth.isAuthenticated()) {
+        deferred.resolve();
+      } else {
+        $location.path('/login');
+      }
+      return deferred.promise;
     }
 });

@@ -2,27 +2,10 @@ var express = require('express'),
 	path = require('path'),
 	mongoose = require('mongoose'),
 	User = mongoose.model('User'),
-	jwt = require('jwt-simple'),
-	moment = require('moment'),
 	rootPath = path.normalize(__dirname + '/../'),
 	router = express.Router();
 
-var config = { TOKEN_SECRET: process.env.TOKEN_SECRET || 'YOUR_UNIQUE_JWT_TOKEN_SECRET' };
-
-/*
- |--------------------------------------------------------------------------
- | Generate JSON Web Token
- |--------------------------------------------------------------------------
- */
-function createJWT(user) {
-  var payload = {
-    sub: user._id,
-    iat: moment().unix(),
-    exp: moment().add(14, 'days').unix()
-  };
-  return jwt.encode(payload, config.TOKEN_SECRET);
-}
-
+var utils = require('./utils');
 
 /*
  |--------------------------------------------------------------------------
@@ -49,7 +32,7 @@ router.post('/auth/signup', function(req, res) {
 		  	console.error('Error saving the user!');
 		    res.status(500).send({ message: err.message });
 		  }
-		  res.send({ token: createJWT(result) });
+		  res.send({ token: utils.createJWT(result) });
 		});
 	});
 });
@@ -70,7 +53,36 @@ router.post('/auth/login', function(req, res) {
       	console.log('wrong password');
         return res.status(401).send({ message: 'Invalid email and/or password' });
       }
-      res.send({ token: createJWT(user) });
+      res.send({ token: utils.createJWT(user) });
+    });
+  });
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | GET /api/me
+ |--------------------------------------------------------------------------
+ */
+router.get('/api/me', utils.ensureAuthenticated, function(req, res) {
+  User.findById(req.user, function(err, user) {
+    res.send(user);
+  });
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | PUT /api/me
+ |--------------------------------------------------------------------------
+ */
+router.put('/api/me', utils.ensureAuthenticated, function(req, res) {
+  User.findById(req.user, function(err, user) {
+    if (!user) {
+      return res.status(400).send({ message: 'User not found' });
+    }
+    user.displayName = req.body.displayName || user.displayName;
+    user.email = req.body.email || user.email;
+    user.save(function(err) {
+      res.status(200).end();
     });
   });
 });

@@ -1,5 +1,5 @@
 
-app.controller('AuthCtrl', function($scope, $auth, $location){
+app.controller('AuthCtrl', function($scope, $auth, $location, Account){
 
 	// For facebook login
 	// $scope.authenticate = function(provider) {
@@ -16,7 +16,10 @@ app.controller('AuthCtrl', function($scope, $auth, $location){
 			.then(function(res){
 				// set localstorage token
 				$auth.setToken(res);
-				$location.path('/');
+				Account.setUser()
+			        .then(function(response) {
+			          $location.path('/');
+			        });
 			})
 			.catch(function(res){
 				console.log(res);
@@ -28,7 +31,10 @@ app.controller('AuthCtrl', function($scope, $auth, $location){
 	$scope.login = function() {
       $auth.login($scope.loginUser)
         .then(function() {
-        	$location.path('/');
+        	Account.setUser()
+		        .then(function(response) {
+		          $location.path('/');
+		        });
         })
         .catch(function(res) {
         	console.log(res);
