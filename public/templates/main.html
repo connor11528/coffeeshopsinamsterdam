@@ -4,12 +4,38 @@
 <div class='jumbotron text-center'>
 	<h1>Coffeeshops in Amsterdam</h1>
 
-
 </div>
-<div class='row'>
 
+<div class="cards-row" ng-repeat='coffeeshop in coffeeshops'>
+    <div class="card-row">
+        <div class="card-row-inner">
+            <div class="card-row-image" data-background-image="assets/img/tmp/product-1.jpg" style="background-image: url(&quot;assets/img/tmp/product-1.jpg&quot;);"></div><!-- /.card-row-image -->
 
-	<ul>
-		<li ng-repeat='coffeeshop in coffeeshops'>{{coffeeshop.name}}</li>
-	</ul>
+            <div class="card-row-body">
+                <h2 class="card-row-title">
+                	<a href="/#/coffeeshop/{{coffeeshop.name}}">{{coffeeshop.name |capitalize}}</a>
+                </h2>
+                <div class="card-row-content">
+                	<p>And why did 'I' have to take a cab? Bender, quit destroying the universe! I've been there. My folks were always on me to groom myself and...</p>
+                </div><!-- /.card-row-content -->
+            </div><!-- /.card-row-body -->
+
+            <div class="card-row-properties">
+                <dl>
+                    <dd>Category</dd><dt>Coffeeshop</dt>
+                    <dd>Location</dd><dt>Amsterdam</dt>
+                    <dd>Rating</dd>
+                    <dt>
+                        <div class="card-row-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div><!-- /.card-row-rating -->
+                    </dt>
+                </dl>
+            </div><!-- /.card-row-properties -->
+        </div><!-- /.card-row-inner -->
+    </div><!-- /.card-row -->
 </div>

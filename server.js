@@ -28,8 +28,12 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES
-var indexRoutes = require('./server/routes');
+var indexRoutes = require('./server/routes/index');
+var coffeeshopsRoutes = require('./server/routes/coffeeshops');
+
+app.use('/api/coffeeshops', coffeeshopsRoutes);
 app.use('/', indexRoutes);
+
 
 // Start server
 app.listen(envConfig.port, function(){

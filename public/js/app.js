@@ -17,6 +17,11 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 			templateUrl: "templates/main.html",
 			controller: 'MainCtrl'
 		})
+		.state('coffeeshop', {
+	        url: "/coffeeshop/:coffeeshopName",
+	        templateUrl: 'templates/coffeeshop.html',
+	        controller: 'CoffeeshopCtrl'
+	    })
 		.state('register', {
 			url: "/register",
 			templateUrl: "templates/register.html",
@@ -66,3 +71,5 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
       return deferred.promise;
     }
 });
+
+

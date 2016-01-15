@@ -3,10 +3,10 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	User = mongoose.model('User'),
 	Coffeeshop = mongoose.model('Coffeeshop'),
-	rootPath = path.normalize(__dirname + '/../'),
+	rootPath = path.normalize(__dirname + '/../../'),
 	router = express.Router();
 
-var utils = require('./utils');
+var utils = require('../utils');
 
 /*
  |--------------------------------------------------------------------------
@@ -86,20 +86,6 @@ router.put('/api/me', utils.ensureAuthenticated, function(req, res) {
       res.status(200).end();
     });
   });
-});
-
-/*
- |--------------------------------------------------------------------------
- | GET /api/coffeeshops
- |--------------------------------------------------------------------------
- */
-router.get('/api/coffeeshops', function(req, res){
-	Coffeeshop.find({}, function(err, coffeeshops){
-		if (err)
-            return res.send(err);
-
-        res.json(coffeeshops);
-	})
 });
 
 

@@ -1,0 +1,80 @@
+.card-row {
+  background-color: #fff;
+  margin: 0px 0px 30px 0px; }
+  .card-row:last-child {
+    margin-bottom: 0px; }
+
+.card-row-inner {
+  display: table;
+  width: 100%; }
+
+.card-row-image, .card-row-body, .card-row-properties {
+  display: table-cell;
+  vertical-align: top; }
+  @media (max-width: 1199px) {
+    .card-row-image, .card-row-body, .card-row-properties {
+      display: block; } }
+
+.card-row-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  position: relative;
+  width: 262px; }
+  @media (max-width: 1199px) {
+    .card-row-image {
+      width: 100%; } }
+
+.card-row-body {
+  padding: 30px; }
+
+.card-row-properties {
+  padding: 30px 30px 30px 30px;
+  width: 260px; }
+  @media (max-width: 1199px) {
+    .card-row-properties {
+      padding: 0px 30px 30px 30px;
+      width: 100%; } }
+
+.card-row-title {
+  font-size: 18px;
+  margin: 0px 0px 20px 0px;
+  padding: 0px; }
+  .card-row-title a {
+    color: #363636; }
+
+.card-row-properties dl {
+  margin: 0px;
+  padding: 0px; }
+
+.card-row-properties dd {
+  float: left;
+  line-height: 36px; }
+
+.card-row-properties dt {
+  border-bottom: 1px dashed #e9e9e9;
+  line-height: 36px;
+  text-align: right; }
+  .card-row-properties dt:last-child {
+    border-bottom: 0px; }
+
+.card-row-rating {
+  color: #ffd925; }
+
+.card-row-label {
+  background-color: #c6af5c;
+  color: #fff;
+  left: 50%;
+  font-size: 13px;
+  padding: 3px 15px;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  z-index: 2; }
+  .card-row-label a {
+    color: #fff; }
+    .card-row-label a:hover {
+      color: #fff;
+      text-decoration: none; }
