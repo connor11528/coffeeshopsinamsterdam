@@ -11,8 +11,11 @@ var express = require('express'),
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 	envConfig = require('./server/env')[env];
 
+<<<<<<< HEAD
+=======
 // DATABASE CONFIG
 require('./server/models/user');
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f
 mongoose.connect(envConfig.db);
 
 // EXPRESS CONFIG
@@ -24,8 +27,12 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES
+<<<<<<< HEAD
+require('./server/routes')(app);
+=======
 var indexRoutes = require('./server/routes');
 app.use('/', indexRoutes);
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f
 
 // Start server
 app.listen(envConfig.port, function(){

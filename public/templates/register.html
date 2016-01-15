@@ -1,0 +1,42 @@
+
+<div class='row text-center'>
+	<div class='col-sm-6 col-sm-offset-3'>
+		<h1>Register</h1>
+
+		<div class="alert alert-danger" role="alert" ng-show='errorMessage'>{{errorMessage}}</div>
+
+		<form ng-submit='register()' class='text-left'>
+			<div class="form-group">
+				<label>Name</label>
+				<input type='text' class='form-control input-lg' placeholder='Name' ng-model='newUser.displayName' required autofocus>
+			</div>
+			<div class="form-group">
+				<label>Email address</label>
+				<input type='email' class='form-control input-lg' placeholder='Email' ng-model='newUser.email'>
+			</div>
+
+			<div class="form-group">
+				<label>Password</label>
+				<input type='password' class='form-control input-lg' placeholder='Password' ng-model='newUser.password'>
+			</div>
+
+			<button type="submit" class="btn btn-lg btn-block btn-success" ng-disabled="loginForm.$invalid">Create Account</button>
+		</form>
+
+		<br/>
+		<p class="text-center text-muted">
+			<small>Already have an account? <a ui-sref='login'>Login</a></small>
+		</p>
+
+		<!--
+		<div class='row'>
+			<p style='font-size:18px;'>--OR--</p>
+		</div>
+
+		<button ng-click="authenticate('facebook')" class='btn btn-primary'>
+			<i class='fa fa-facebook fa-3'></i> Sign up with Facebook
+		</button>
+		-->
+		
+	</div>
+</div>

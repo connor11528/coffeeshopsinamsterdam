@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "coffeeshopsinamsterdam",
   "version": "0.0.1",
   "description": "coffee shops in Amsterdam",
+=======
+  "name": "mean-auth-starter",
+  "version": "0.0.1",
+  "description": "a starting point for express, angular, mongodb apps",
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,14 +25,21 @@
   "author": "Connor Leech",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
+=======
     "bcryptjs": "^2.3.0",
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f
     "body-parser": "^1.13.1",
     "cookie-parser": "^1.3.5",
     "cors": "^2.7.1",
     "express": "^4.12.4",
+<<<<<<< HEAD
+    "method-override": "^2.3.3",
+=======
     "jwt-simple": "^0.4.1",
     "method-override": "^2.3.3",
     "moment": "^2.11.1",
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f
     "mongoose": "^4.0.5"
   }
 }

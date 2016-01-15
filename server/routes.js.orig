@@ -1,5 +1,21 @@
 var express = require('express'),
 	path = require('path'),
+<<<<<<< HEAD
+	rootPath = path.normalize(__dirname + '/../'),
+	apiRouter = express.Router(),
+	router = express.Router();
+
+module.exports = function(app){	
+
+	// angularjs catch all route
+	router.get('/*', function(req, res) {
+		res.sendFile(rootPath + 'public/index.html', { user: req.user });
+	});
+
+	app.use('/api', apiRouter);	// haven't built any api yet
+	app.use('/', router);
+};
+=======
 	mongoose = require('mongoose'),
 	User = mongoose.model('User'),
 	rootPath = path.normalize(__dirname + '/../'),
@@ -94,3 +110,4 @@ router.get('/*', function(req, res) {
 
 
 module.exports = router;
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f

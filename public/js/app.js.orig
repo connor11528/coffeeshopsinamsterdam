@@ -1,5 +1,13 @@
 
+<<<<<<< HEAD
 var app = angular.module('coffeeshopsinamsterdam', [
+	'ui.router',
+	'mm.foundation'
+]);
+
+app.config(function($stateProvider, $urlRouterProvider){
+=======
+var app = angular.module('mean-auth-starter', [
 	'ui.router',
 	'satellizer'
 ]);
@@ -11,11 +19,17 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 	// });
 
     // define routes
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f
 	$stateProvider
 		.state('home', {
 			url: "/",
 			templateUrl: "templates/main.html",
 			controller: 'MainCtrl'
+<<<<<<< HEAD
+		});
+
+	$urlRouterProvider.otherwise("/");
+=======
 		})
 		.state('register', {
 			url: "/register",
@@ -65,4 +79,5 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
       }
       return deferred.promise;
     }
+>>>>>>> 8043c6c57b79eb8af56205a3ff5a1e6fe4af5d6f
 });
