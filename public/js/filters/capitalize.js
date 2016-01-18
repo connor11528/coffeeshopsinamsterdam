@@ -2,6 +2,8 @@
 // filter to capitalize first letter of every word in string
 app.filter('capitalize', function() {
   return function(input, scope) {
+    if (!input || !input.length) { return; }
+    
     if (input!=null)
     	input = input.toLowerCase();
 

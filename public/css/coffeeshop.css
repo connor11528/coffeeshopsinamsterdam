@@ -1,0 +1,23 @@
+.detail-banner {
+    background-position: center center;
+    background-size: 100% auto;
+    position: relative;
+}
+
+.detail-banner .container {
+    height: 100%;
+    position: relative;
+}
+
+.detail-banner .detail-banner-left {
+    left: 15px;
+}
+
+.detail-banner h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.detail-banner .detail-banner-address {
+    font-weight: 300;
+}

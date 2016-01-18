@@ -1,5 +1,39 @@
+
+<div class="detail-banner" style="background-image: url(assets/img/tmp/detail-banner-1.jpg);">
+    <div class="container">
+        <div class="detail-banner-left">
+
+            <h2 class="detail-title">
+                {{coffeeshop.name | capitalize}}
+            </h2>
+
+            <div class="detail-banner-address">
+                <i class="fa fa-map-o"></i> {{coffeeshop.iframe_url}}
+            </div><!-- /.detail-banner-address -->
+
+            <div class="detail-banner-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div><!-- /.detail-banner-rating -->
+
+        </div><!-- /.detail-banner-left -->
+    </div><!-- /.container -->
+</div>
+
 <div class='row'>
 	<pre>{{coffeeshop | json}}</pre>
 
-	<div class='btn btn-default btn-lg'>Edit</div>
+	<form class='form' ng-submit='updateCoffeeshop()'>
+		<label>Name</label>
+		<input type='text' ng-model='coffeeshop.name' class='form-control' />
+		<label>Lat</label>
+		<input type='text' ng-model='coffeeshop.lat' class='form-control' />
+		<label>Long</label>
+		<input type='text' ng-model='coffeeshop.long' class='form-control' />
+
+		<div class='btn btn-default btn-lg'>Update</div>
+	</form>
 </div>
