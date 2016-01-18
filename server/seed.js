@@ -18,7 +18,9 @@ Coffeeshop.find({}).exec(function(err, collection){
 			if(shop.title){
 				Coffeeshop.create({
 					name: shop.title,
-					iframe_url: shop.iframe_url
+					iframe_url: shop.iframe_url,
+					latitude: shop.lat,
+					longitude: shop.long
 				});
 			}
 		});
