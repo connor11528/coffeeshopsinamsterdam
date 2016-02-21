@@ -1,5 +1,5 @@
 
-<div class="detail-banner" style="background-image: url(assets/img/tmp/detail-banner-1.jpg);">
+<div class="detail-banner">
     <div class="container">
         <div class="detail-banner-left">
 
@@ -8,8 +8,8 @@
             </h2>
 
             <div class="detail-banner-address">
-                <i class="fa fa-map-o"></i> {{coffeeshop.iframe_url}}
-            </div><!-- /.detail-banner-address -->
+                <i class="fa fa-map-o"></i> {{coffeeshop.latitude}}, {{coffeeshop.longitude}}
+            </div>
 
             <div class="detail-banner-rating">
                 <i class="fa fa-star"></i>
@@ -17,15 +17,29 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star-half-o"></i>
-            </div><!-- /.detail-banner-rating -->
+            </div>
 
-        </div><!-- /.detail-banner-left -->
-    </div><!-- /.container -->
+            <div class='btn btn-default' ng-if="isAuthenticated()">
+                <i class="fa fa-star"></i> Write Review
+            </div>
+            <div class='btn btn-default' ng-if="!isAuthenticated()" ui-sref='login'>
+                <i class="fa fa-key"></i> Log in to Review
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- All Ratings -->
+<div class='row'>
+    <div class='col-sm-12' ng-repeat='r in ratings'>
+        <pre>{{r | json}}</pre>
+    </div>
 </div>
 
-<div class='row'>
+<div class='row' ng-if="isAuthenticated()">
 	<pre>{{coffeeshop | json}}</pre>
 
+    <h3>Edit Coffeeshop (admin only)</h3>
 	<form class='form' ng-submit='updateCoffeeshop()'>
 		<label>Name</label>
 		<input type='text' ng-model='coffeeshop.name' class='form-control' />

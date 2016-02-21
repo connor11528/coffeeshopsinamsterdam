@@ -2,11 +2,15 @@
     background-position: center center;
     background-size: 100% auto;
     position: relative;
+    background-image: url('../img/coffeeshop_standard.jpg');
+    height: 400px;
+    color: white;
 }
 
 .detail-banner .container {
     height: 100%;
     position: relative;
+    margin: 100px;
 }
 
 .detail-banner .detail-banner-left {

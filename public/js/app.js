@@ -33,7 +33,10 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 		.state('login', {
 			url: "/login",
 			templateUrl: "templates/login.html",
-			controller: 'AuthCtrl'
+			controller: 'AuthCtrl',
+			resolve: {
+	          skipIfLoggedIn: skipIfLoggedIn
+	        }
 		})
 		.state('logout', {
 			url: '/logout',

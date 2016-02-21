@@ -1,8 +1,8 @@
 
-app.controller('NavCtrl', function($scope, $auth, Account){
+app.controller('NavCtrl', function($rootScope, $auth, Account){
 	Account.setUser();
 	
-	$scope.isAuthenticated = function() {
+	$rootScope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
 })

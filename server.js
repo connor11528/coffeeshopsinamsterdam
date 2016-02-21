@@ -14,6 +14,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 // DATABASE CONFIG
 require('./server/models/User');
 require('./server/models/Coffeeshop');
+require('./server/models/Review');
 
 mongoose.connect(envConfig.db);
 
@@ -33,7 +34,6 @@ var coffeeshopsRoutes = require('./server/routes/coffeeshops');
 
 app.use('/api/coffeeshops', coffeeshopsRoutes);
 app.use('/', indexRoutes);
-
 
 // Start server
 app.listen(envConfig.port, function(){
