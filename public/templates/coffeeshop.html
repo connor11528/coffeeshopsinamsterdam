@@ -19,7 +19,7 @@
                 <i class="fa fa-star-half-o"></i>
             </div>
 
-            <div class='btn btn-default' ng-if="isAuthenticated()">
+            <div class='btn btn-default' ng-if="isAuthenticated()" ng-click='openWriteReviewModal()'>
                 <i class="fa fa-star"></i> Write Review
             </div>
             <div class='btn btn-default' ng-if="!isAuthenticated()" ui-sref='login'>

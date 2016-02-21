@@ -1,5 +1,5 @@
 
-app.controller('CoffeeshopCtrl', function ($scope, $stateParams, $http, Coffeeshop) {
+app.controller('CoffeeshopCtrl', function ($scope, $stateParams, $http, Coffeeshop, $uibModal) {
 
 	var coffeeshopName = $stateParams.coffeeshopName;
 
@@ -18,5 +18,19 @@ app.controller('CoffeeshopCtrl', function ($scope, $stateParams, $http, Coffeesh
     			console.log('In response from update Coffeeshop');
     			console.log(res);
     		});
+    };
+
+    $scope.openWriteReviewModal = function(){
+        var modalInstance = $uibModal.open({
+            animation: false,
+            templateUrl: 'templates/writeReviewModal.html',
+            // controller: 'ModalInstanceCtrl',
+            size: 'lg',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
     };
 });

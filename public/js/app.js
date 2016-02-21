@@ -1,7 +1,9 @@
 
 var app = angular.module('coffeeshopsinamsterdam', [
 	'ui.router',
-	'satellizer'
+	'satellizer',
+	'ui.bootstrap',
+	'ngAnimate'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider){
