@@ -1,7 +1,9 @@
 coffeeshopsinamsterdam
 =====
 
-Foundation for styling. [Angular Foundation](https://github.com/pineconellc/angular-foundation)
+Angular.js, Node.js, Mongoose, Bootstrap for web app.
+
+Satellizer for authentication.
 
 Beautiful Soup and Python for web scraping
 
