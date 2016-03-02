@@ -3,9 +3,12 @@
 		<h1>Write a Review</h1>
 	</div>
 	<div class="modal-body">
-		<p><b>Hover star ratings: </b> <a href='http://plnkr.co/edit/kFKejRU0G2wmkD7GlNdH?p=preview'>plunkr link</a> </p>
-		<input type='text' class='form-control' placeholder='Number of stars (1-5)'>
-		<textarea class='form-control' placeholder='Tell us about the coffeeshop..'></textarea>
+		<span ng-repeat="rating in ratings">
+			<p class='star-rating'>{{rating.current}} out of {{rating.max}} stars</p>
+        	<div star-rating rating-value="rating.current" max="rating.max" ></div>
+        </span>
+
+		<textarea class='form-control' placeholder='Write your review here..'></textarea>
 	</div>
 	<div class="modal-footer">
 		<input type='submit' value='Publish' class='btn btn-warning'>

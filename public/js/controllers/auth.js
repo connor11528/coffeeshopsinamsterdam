@@ -22,7 +22,7 @@ app.controller('AuthCtrl', function($scope, $auth, $location, Account){
 			        });
 			})
 			.catch(function(res){
-				console.log(res);
+				console.error(res);
 				$scope.errorMessage = res.data.message;
 			});
 	};
@@ -37,7 +37,7 @@ app.controller('AuthCtrl', function($scope, $auth, $location, Account){
 		        });
         })
         .catch(function(res) {
-        	console.log(res);
+        	console.error(res);
 			$scope.errorMessage = res.data.message;
         });
     };

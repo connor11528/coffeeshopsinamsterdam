@@ -4,7 +4,6 @@ app.factory('Account', function($http, $rootScope) {
 			return $http.get('/api/me')
 		        .then(function(response) {
 		        	$rootScope.user = response.data;
-		        	console.log('root scope user: ', response.data);
 		        });
 		},
 		getProfile: function() {

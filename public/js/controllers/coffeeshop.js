@@ -24,7 +24,7 @@ app.controller('CoffeeshopCtrl', function ($scope, $stateParams, $http, Coffeesh
         var modalInstance = $uibModal.open({
             animation: false,
             templateUrl: 'templates/writeReviewModal.html',
-            // controller: 'ModalInstanceCtrl',
+            controller: 'ModalInstanceCtrl',
             size: 'lg',
             resolve: {
                 items: function () {
